@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // Clear the div
+      //Solution: Create the new element using createElement and then append it using appendChild.
+      let newParagraph = document.createElement("p");
+      newParagraph.innerText = "This text should now appear!";
+      document.getElementById("myDiv").appendChild(newParagraph);
+    }
+  </script>
+</body>
+</html>
