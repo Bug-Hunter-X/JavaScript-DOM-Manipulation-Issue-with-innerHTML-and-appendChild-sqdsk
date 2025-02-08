@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // This clears the div
+      //The bug is that the next line does not run
+      document.getElementById("myDiv").appendChild(document.createElement("p")).innerText = "This text should appear after the div is cleared, but it doesn't.";
+    }
+  </script>
+</body>
+</html>
